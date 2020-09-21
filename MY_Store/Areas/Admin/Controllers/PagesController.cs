@@ -173,5 +173,23 @@ namespace MY_Store.Areas.Admin.Controllers
             }
             return View(model);
         }
+
+        //GET: Admin/Pages/DeletePage/id
+        [HttpGet]
+        public ActionResult DeletePage(int id)
+        {
+            using (Db db = new Db())
+            {
+                PagesDTO dto = db.Pages.Find(id);
+
+                db.Pages.Remove(dto);
+
+                db.SaveChanges();
+            }
+
+            TempData["SM"] = "You have delete a page!";
+            
+            return RedirectToAction("Index");
+        }
     }
 }

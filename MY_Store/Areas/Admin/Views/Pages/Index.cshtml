@@ -43,10 +43,30 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "EditPage", new { id=item.Id }) |
-            @Html.ActionLink("Details", "PageDetails", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "DeletePage", new { id=item.Id })
+            @Html.ActionLink("Details", "PageDetails", new { id=item.Id })
+            <!--if Slug  it is home, you not see delete-->
+            @if (item.Slug != "home")
+            {
+                string slash = "| ";
+                @slash;
+            @Html.ActionLink("Delete", "DeletePage", new { id = item.Id }, new { @class = "delete" })
+            }
         </td>
     </tr>
 }
 
 </table>
+
+@section Scripts
+{
+    <script>
+        $(function () {
+
+            /* confirm del page*/
+
+            $('a.delete').click(function () {
+                if (!confirm("Confirm page deletion?")) return false;
+            });
+        });
+    </script>
+}
