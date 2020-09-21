@@ -102,7 +102,6 @@ namespace MY_Store.Areas.Admin.Controllers
         }
 
         //POST: Admin/Pages/EditPage
-
         [HttpPost]
         public ActionResult EditPage(PageVM model)
         {
@@ -153,6 +152,26 @@ namespace MY_Store.Areas.Admin.Controllers
             TempData["SM"] = "You have edited the page.";
 
             return RedirectToAction("EditPage");
+        }
+
+        //GET: Admin/Pages/PageDetails/id
+        [HttpGet]
+        public ActionResult PageDetails(int id)
+        {
+            PageVM model;
+
+            using (Db db = new Db())
+            {
+                PagesDTO dto = db.Pages.Find(id);
+
+                if(dto == null)
+                {
+                    return Content("The page dos  not exist.");
+                }
+
+                model = new PageVM(dto);
+            }
+            return View(model);
         }
     }
 }
