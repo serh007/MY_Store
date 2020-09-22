@@ -14,16 +14,16 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
-           
+
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     @Html.ActionLink("Pages", "Index", "Pages", "", new { @class = "nav-link" })
                 </li>
                 <li class="nav-item active">
                     @Html.ActionLink("Sidebar", "EditSidebar", "Pages", "", new { @class = "nav-link" })
-                </li>                
-            </ul>    
-            
+                </li>
+            </ul>
+
             <ul class="navbar-nav ml-auto">
                 <!--rigt menu-->
                 <li class="nav-item active">
@@ -40,11 +40,14 @@
             <p>&copy; @DateTime.Now.Year - My MVC Store</p>
         </footer>
     </div>
+    <!--add visual editor scripts-->
+    @Scripts.Render("~/bundles/ckeditor")
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-    <!--add bandl to site-->
+    <!--add bandl jqueri-ui scripts to site-->
     @Scripts.Render("~/bundles/jqueryui")
+
 </body>
 </html>

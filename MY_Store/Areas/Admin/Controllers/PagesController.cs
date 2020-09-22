@@ -13,6 +13,7 @@ namespace MY_Store.Areas.Admin.Controllers
     public class PagesController : Controller
     {
         // GET: Admin/Pages
+        [HttpGet]
         public ActionResult Index()
         {
             List<PageVM> pageList;

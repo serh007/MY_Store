@@ -29,6 +29,10 @@ namespace MY_Store
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
                       "~/Content/jquery-ui.css"));
+
+            //add CKEditor
+            bundles.Add(new ScriptBundle("~/bundles/ckeditor").Include(
+                     "~/Scripts/ckeditor/ckeditor.js"));
         }
     }
 }
