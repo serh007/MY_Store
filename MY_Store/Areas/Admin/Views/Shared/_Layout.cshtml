@@ -9,24 +9,27 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        @Html.ActionLink("Dashboard", "Index", "Dashboard", new { @class = "navbar-brand" })
+        @Html.ActionLink("Dashboard", "Index", "Dashboard", "", new { @class = "navbar-brand" })
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
-            <!--rigt menu-->
+           
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    @Html.ActionLink("Pages", "Index", "Pages", "", new { @class = "nav-link" })
+                </li>
+                <li class="nav-item active">
+                    @Html.ActionLink("Sidebar", "EditSidebar", "Pages", "", new { @class = "nav-link" })
+                </li>                
+            </ul>    
+            
             <ul class="navbar-nav ml-auto">
+                <!--rigt menu-->
                 <li class="nav-item active">
                     <a class="navbar-brand" href="#" target="_blank">Shopping Cart</a>
                 </li>
-                @*<li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>*@
-
             </ul>
-            @*<span class="navbar-text">
-                    Navbar text with an inline element
-                </span>*@
         </div>
     </nav>
 
@@ -34,7 +37,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - My MVC Store</p>
         </footer>
     </div>
 

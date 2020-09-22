@@ -192,10 +192,9 @@ namespace MY_Store.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-        //add sorting
-        //POST: Admin/Pages/Reorderpages
-        [HttpPost]
 
+        //POST: Admin/Pages/ReorderPages  //add sorting
+        [HttpPost]
         public void ReorderPages(int[] id)
         {
             using (Db db = new Db())
@@ -216,5 +215,37 @@ namespace MY_Store.Areas.Admin.Controllers
                 
             }
         }
+
+        //GET: Admin/Pages/EditSidebar
+        [HttpGet]
+        public ActionResult EditSidebar()
+        {
+            SidebarVM model;
+
+            using (Db db = new Db())
+            {
+                SidebarDTO dto = db.Sidebars.Find(1); //Поміняти на НЕ привязане значення!
+
+                model = new SidebarVM(dto);
+            }
+            return View(model);
+        }
+
+        //POST: Admin/Pages/EditSidebar
+        [HttpPost]
+        public ActionResult EditSidebar(SidebarVM model)
+        {
+            using (Db db = new Db())
+            {
+                SidebarDTO dto = db.Sidebars.Find(1); //Поміняти на НЕ привязане значення!
+
+                dto.Body = model.Body;
+
+                db.SaveChanges();
+            }
+            TempData["SM"] = "You have edited the sidebar!";
+            return RedirectToAction("EditSidebar");
+        }
+
     }
 }
