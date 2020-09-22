@@ -191,5 +191,30 @@ namespace MY_Store.Areas.Admin.Controllers
             
             return RedirectToAction("Index");
         }
+
+        //add sorting
+        //POST: Admin/Pages/Reorderpages
+        [HttpPost]
+
+        public void ReorderPages(int[] id)
+        {
+            using (Db db = new Db())
+            {
+                int count = 1;
+
+                PagesDTO dto;
+                foreach (var pageId in id)
+                {
+                    dto = db.Pages.Find(pageId);
+                    dto.Sorting = count;
+
+                    db.SaveChanges();
+
+                    count++;
+                }
+
+                
+            }
+        }
     }
 }

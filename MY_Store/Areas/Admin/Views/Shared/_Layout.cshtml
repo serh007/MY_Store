@@ -20,16 +20,16 @@
                     <a class="navbar-brand" href="#" target="_blank">Shopping Cart</a>
                 </li>
                 @*<li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>*@
+                        <a class="nav-link" href="#">Features</a>
+                    </li>*@
 
             </ul>
             @*<span class="navbar-text">
-                Navbar text with an inline element
-            </span>*@
+                    Navbar text with an inline element
+                </span>*@
         </div>
     </nav>
-    
+
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -41,5 +41,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <!--add bandl to site-->
+    @Scripts.Render("~/bundles/jqueryui")
 </body>
 </html>
