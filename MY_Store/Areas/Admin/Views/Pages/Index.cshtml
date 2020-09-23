@@ -71,30 +71,5 @@ else
 }
 @section Scripts
 {
-    <script>
-
-
-        $(function () {
-
-            /* confirm del page*/
-
-            $("a.delete").click(function () {
-                if (!confirm("Confirm page deletion?")) return false;
-            });
-        /*---------------------------------------*/
-
-            /*Sorting script*/
-            $("table#pages tbody").sortable({
-                items: "tr:not(.home)",
-                placeholder: "ui-state-highlight",
-                update: function () {
-                    var ids = $("table#pages tbody").sortable("serialize");
-                    var url = "/Admin/Pages/ReorderPages";
-
-                    $.post(url, ids, function (data) {
-                    });
-                }
-            });
-        });
-    </script>
+    <script src="~/Content/shopjs/PagesIndexViewJS.js"></script>
 }
