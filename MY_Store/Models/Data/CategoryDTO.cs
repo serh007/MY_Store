@@ -8,6 +8,7 @@ using System.Web;
 namespace MY_Store.Models.Data
 {
     [Table("Categories")]
+    //Data Transfer Object "DTO"
     public class CategoryDTO
     {
         [Key]
