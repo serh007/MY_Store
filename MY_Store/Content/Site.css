@@ -74,3 +74,13 @@ table.sorting tr:not(.home){
 }
 
 /*---------------------------------------------------*/
+div.ajaxmsg {
+    background: green;
+    color: white;
+    padding: 10px;
+    display: none;
+    border-radius: 5px;
+}
+span.loader {
+    display: none;
+}
