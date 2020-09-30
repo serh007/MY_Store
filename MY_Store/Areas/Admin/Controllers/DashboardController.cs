@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace MY_Store.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class DashboardController : Controller
     {
         // GET: Admin/Dashboard

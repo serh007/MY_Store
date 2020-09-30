@@ -10,6 +10,7 @@ using System.Web.WebPages.Html;
 
 namespace MY_Store.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class PagesController : Controller
     {
         // GET: Admin/Pages
